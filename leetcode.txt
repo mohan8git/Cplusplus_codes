@@ -1,0 +1,119 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+       stack<ListNode*> lstack;
+        
+        ListNode* t=head;
+        while(t!=NULL)
+        {
+            lstack.push(t);
+            t=t->next;
+        }
+        
+        while(head!=NULL)
+        {
+            if(head->val!=lstack.top()->val)
+            {return false;}
+            lstack.pop();
+            head=head->next;
+        }
+        return true;
+        
+    }
+};
+
+---------------------------------------
+ for(auto x:nums)
+        {
+        mp[x]++;
+        }
+        
+         for(auto x:mp)
+        {
+        if(x.second==1)
+        {
+            r=x.first;
+            break;
+        }
+        }
+
+
+=======================================
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+        int arr[26]{0};
+        for(char ch:s)
+        {   
+            arr[ch-'a']++;
+        }
+        for(char ch:t)
+        {   if(arr[ch-'a']==0)
+            return ch;
+            else
+                arr[ch-'a']--;
+        }
+        return 0;
+    }
+};
+==================================================
+
+class Solution {
+public:
+    bool hasAlternatingBits(int n) {
+        int lastbit=n%2;
+        int currbit;
+        while(n)
+        {
+            n=n/2;
+            currbit=n%2;
+            if(currbit==lastbit)
+                return false;
+            else
+            {
+                lastbit=currbit;
+            }
+        }
+        return true;
+        
+    }
+};
+
+=======================================================
+
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {                //counting no of set bits.
+        int r=0;
+        while(n>0)
+        {
+            n=(n&(n-1));
+            r++;
+        }
+        return r;
+    }
+};
+
+=================================
+public:
+    int hammingDistance(int x, int y) {
+        int z=x^y;
+        int r=0;
+        while(z)
+        {
+            z=z&(z-1);
+            r++;
+        }
+        return r;
+    }
+};
+
+=============================================

@@ -1,0 +1,40 @@
+vector<int> v;
+v.push_back(1);
+v.size();
+for(x:v)
+cout<<x;
+is_sorted(A, A + range2)
+is_sorted(a.begin(),a.end())
+*max_element(a.begin(), a.end())
+ vector<int> a(nums);				vec to vec
+ std::string s = std::to_string(tmp);
+    
+    std::reverse(s.begin(), s.end());			reverse
+    
+
+long long int res = std::stoull(s)
+remove(n.begin(), n.end(), val)				delete
+
+
+ while(str[i])
+        {
+            str[i]=char(tolower(str[i]));         to lower
+                i++;
+        }
+
+
+even.insert(even.end(),odd.begin(),odd.end())  //appending 2 vectors
+
+sort(arr.begin(),arr.end());               sorting vector
+
+sort(nums.begin(),nums.end(),greater<int>());
+
+
+n.erase(remove(n.begin(), n.end(), val), n.end());  //removing an element from an array
+
+
+
+
+  string str = to_string(num);
+        str[str.find('6')] = '9';
+        return stoi(str);
