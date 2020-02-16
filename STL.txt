@@ -10,11 +10,11 @@ is_sorted(a.begin(),a.end())
  std::string s = std::to_string(tmp);
     
     std::reverse(s.begin(), s.end());			reverse
-    
+=============================================    
 
 long long int res = std::stoull(s)
 remove(n.begin(), n.end(), val)				delete
-
+========================================================
 
  while(str[i])
         {
@@ -22,19 +22,34 @@ remove(n.begin(), n.end(), val)				delete
                 i++;
         }
 
-
+======================
 even.insert(even.end(),odd.begin(),odd.end())  //appending 2 vectors
-
+===============
 sort(arr.begin(),arr.end());               sorting vector
-
+==============
 sort(nums.begin(),nums.end(),greater<int>());
 
-
+===================================
 n.erase(remove(n.begin(), n.end(), val), n.end());  //removing an element from an array
 
 
 
-
+=================================
   string str = to_string(num);
         str[str.find('6')] = '9';
         return stoi(str);
+
+========================
+
+            arr[i]=*max_element(arr.begin()+i+1,arr.end()); 
+
+
+====================
+accumulate(a , a+3 , sum); 
+====================================================
+vector<int>t={2,8,7,1};
+	int key=8;
+	if(std::find(t.begin(),t.end(),key)!=t.end())
+	    cout<<"1";
+	
+	
