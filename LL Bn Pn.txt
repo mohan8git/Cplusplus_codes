@@ -1,0 +1,75 @@
+#include<stdio.h>
+#include<iostream>
+using namespace std;
+struct node
+{
+    int data;
+    node* next;
+}*head;
+
+
+insert(int d)
+{   node*q=new node();
+    q->data=d;
+    q->next=NULL;
+
+    if(head==NULL)
+      head=q;
+    else
+        {
+           q->next=head;
+          head=q;
+        }
+}
+void insertbn(int v,int p){
+ node*t=new node();
+ t->data=v;
+ t->next=NULL;
+ node*d=head;
+ if(p==0)
+ {
+     t->next=head;
+     head=t;
+     return;
+
+ }
+p--;
+ while(p--)
+ {
+     d=d->next;
+ }
+ t->next=d->next;
+ d->next=t;
+
+}
+
+
+print()
+{
+    node*t;
+    t=head;
+    cout<<"LL:"<<endl;
+    while(t!=NULL)
+     {
+
+        cout<<t->data<<"->";
+    t=t->next;
+    }cout<<"NULL"<<endl;
+}
+int main()
+{
+    head=NULL;
+
+    for(int i=9;i<=19;i++)
+        insert(i);
+
+    int n;cin>>n;
+    while(n--)
+    {
+        int v,p;
+        cin>>v>>p;
+        insertbn(v,p);
+        print();
+    }
+
+}

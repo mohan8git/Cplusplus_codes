@@ -1,0 +1,134 @@
+#include<iostream>
+using namespace std;
+struct node
+  {
+      int data;
+      node* next;
+  }*head;
+
+ void insert(int v)
+ {
+     node* t=new node;
+     t->data=v;
+     t->next=NULL;
+     if(head==NULL)
+     {
+         head=t;
+     }
+     else{
+     node* d=head;
+        while(d->next!=NULL)
+        {
+            d=d->next;
+        }
+        d->next=t;
+     }
+
+ }
+
+void print()
+{
+    node* t=head;
+    while(t!=NULL)
+    {
+        cout<<t->data<<"->";
+        t=t->next;
+    }
+    cout<<"NULL"<<endl;
+}
+
+void reverse()
+{
+   node* l=NULL;
+   while(head!=NULL)
+   {
+       node* a=head;
+       head=head->next;
+       a->next=l;
+       l=a;
+   }
+    head=l;
+
+
+}
+
+
+int main()
+ {
+     int n;
+     cin>>n;
+     int t;
+     while(n--)
+     {
+         cin>>t;
+         insert(t);
+     }
+     print();
+reverse();
+print();
+ }
+
+------------------------------------------------------------------------------------------------------------------------
+#include <iostream>
+using namespace std;
+struct node
+{
+    int data;
+    node* left;
+    node* right;
+}*root;
+
+
+node* insert(node* r,int v)
+{
+  if(r==NULL)
+  {
+    node* t=new node();
+    t->data=v;           //everytime new node will be created
+    t->right=t->left=NULL;
+    r=t;
+  }
+    else if(v > r->data)
+    {
+      r->right=insert(r->right,v);    //recursive call made again
+
+    }
+    else if(v <= r->data){     //= for duplicate value....//////
+      r->left=insert(r->left,v);    //recursive call made again
+    }
+
+
+
+ return r;
+}
+
+
+
+
+
+void preorder(node* r){
+ if(r!=NULL)
+ {
+
+     preorder(r->left);
+     preorder(r->right);
+      cout<<r->data<<" ";
+
+ }
+
+}
+
+int main(){
+
+   root=NULL;
+   root=insert(root,10);
+    root=insert(root,5);
+    root=insert(root,20);
+    root=insert(root,4);
+root=insert(root,6);
+root=insert(root,12);
+root=insert(root,25);
+preorder(root);
+return 0;
+}
+

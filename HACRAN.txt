@@ -1,0 +1,69 @@
+int CompareLists(Node *headA, Node* headB)
+{  
+    Node* a=headA;
+    Node* b=headB;
+    while(a!=NULL && b!=NULL)
+   {
+       if(a->data!=b->data)
+                  {
+                     return 0;
+                  }
+           a=a->next;
+           b=b->next;
+   }
+   return (a==NULL && b==NULL);
+    
+}
+-----------------------------------------------------------------------------
+/*
+  Get Nth element from the end in a linked list of integers
+  Number of elements in the list will always be greater than N.
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+*/
+int GetNode(Node *head,int p)
+{  
+    Node* i=head;
+    Node* m=head;
+    while(p--){
+        m=m->next;
+    }
+    while(m->next!=NULL){
+        i=i->next;
+        m=m->next;
+    }
+    return i->data;
+    
+}  
+ --------------------------------------------------------------------------------- 
+/*
+  Remove all duplicate elements from a sorted linked list
+  Node is defined as 
+  struct Node
+  {
+     int data;
+     struct Node *next;
+  }
+*/
+Node* RemoveDuplicates(Node *head)
+{
+ Node* t=head;
+ 
+    while(t->next!=NULL)
+    { 
+      if(t->data==t->next->data)
+      {
+          Node* temp=t->next->next;
+          delete t->next;
+          t->next=temp;
+      }
+      else
+          t=t->next;
+    }
+    return head;
+}
+------------------------------------------------------------------------------------

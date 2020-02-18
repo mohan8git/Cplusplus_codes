@@ -1,0 +1,225 @@
+#include<iostream>
+using namespace std;
+struct node
+{
+    int data;
+    node* next;
+}*head;
+int count=0;
+int size;
+void push(int v)
+{
+node* d=new node;
+d->data=v;
+d->next=NULL;
+if(count>=size) {
+        cout<<"Stack Overflow"<<endl;
+        return;
+        
+        }
+    if(head==NULL)
+    {
+      head=d; 
+    }
+    else
+        {
+            d->next=head;
+            head=d;
+        }
+count++;
+}
+ void pop()
+ {
+if(head!=NULL)
+  {head=head->next;
+  count--;
+  return;
+  }
+  cout<<"Stack Underflow"<<endl;
+ }
+
+ int top()
+ {  if(head!=NULL)
+   {
+       return head->data;
+    }
+    cout<<"Head is NULL"<<endl;
+    return 0;
+}
+
+int main()
+{
+  head=NULL;
+  int v;
+  cin>>size;
+  int c;
+  do{
+      cout<<"1.Push\n2.Pop\n3.top\n0.exit"<<endl;
+      cin>>c;
+      switch(c)
+      {
+          case 1:   cin>>v;
+                    push(v);
+                    break;
+          case 2:   pop();
+                    break;
+          case 3:   if(top())
+                    cout<<top()<<endl;
+                    break;
+      }
+
+  }while(c!=0);
+
+
+
+}
+---------------------------------------------------------------------------------------------------------------------
+#include<iostream>
+using namespace std;
+struct node
+{
+    int data;
+    node* next;
+}*head;
+int count=0;
+int size;
+void push(int x)
+{  if(count>=size){cout<<"stack overflow";return;}
+    node* t=new node();
+    t->data=x;
+    t->next=NULL;
+    if(head==NULL)
+    {
+      head=t;
+    }
+    else{
+        t->next=head;
+        head=t;
+    }
+    count++;
+}
+ void pop()
+ {
+     if(head!=NULL)
+     {
+         head=head->next;
+         count--;
+     }
+     else
+     cout<<"stack underflow";
+ }
+int top()
+{
+
+ if(head==NULL)
+    {
+        cout<<"head is null\n";
+    return 0;
+ }
+
+
+ return head->data;
+
+}
+int main()
+{
+    int c;
+    int v;
+    cin>>size;
+
+    do{
+        cout<<"1.push\n2.pop\n3.top\n0.exit"<<endl;
+        cin>>c;
+
+        switch(c)
+        {
+            case 1:cin>>v;
+                   push(v);
+                   break;
+            case 2:pop();
+                    break;
+            case 3:if(top())
+                   cout<<top()<<endl;
+
+        }
+
+
+    }while(c!=0);
+}
+-------------------------------------------------------------------------------------------------------------------------------------------
+#include<iostream>
+using namespace std;
+struct node
+{
+    int data;
+    node* next;
+}*head;
+int count=0;
+int size;
+void enqueue(int x)
+{  if(count>=size){cout<<"queue full";return;}
+    node* t=new node();
+    t->data=x;
+    t->next=NULL;
+    if(head==NULL)
+    {
+      head=t;
+    }
+    else{
+        t->next=head;
+        head=t;
+    }
+    count++;
+}
+ void deque()
+ {
+     if(count==0){cout<<"queue empty\n";return;}
+     if(count==1){head=head->next;count--;return;}
+
+    node* t=head;
+    node* u=head->next;
+    while(u->next!=NULL)
+    {
+        u=u->next;
+        t=t->next;
+    }
+    t->next=NULL;
+delete u;
+    count--;
+ }
+int print()
+{
+node* t=head;
+while(t!=NULL)
+{
+ cout<<t->data<<"->";
+ t=t->next;
+}
+cout<<"NULL"<<endl;
+}
+
+int main()
+{
+    int c;
+    int v;
+    cin>>size;
+
+    do{
+        cout<<"1.enqueue\n2.deque\n3.view\n0.exit"<<endl;
+        cin>>c;
+
+        switch(c)
+        {
+            case 1:cin>>v;
+                   enqueue(v);
+                   break;
+            case 2:deque();
+                    break;
+            case 3:print();
+
+
+        }
+
+
+    }while(c!=0);
+}

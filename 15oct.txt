@@ -1,0 +1,350 @@
+#include<iostream>
+using namespace std;
+struct node
+{
+    int data;
+    node* next;
+}*head;
+
+void insert(int v)
+{
+    node* d=new node();
+    d->data=v;
+    d->next=NULL;
+        if(head==NULL)
+        {
+            head=d;
+        }
+        else
+        {
+            node* t=head;
+            while(t->next!=NULL)
+            {
+                t=t->next;
+            }
+            t->next=d;
+
+        }
+}
+void del_at_beg()
+{  if(head!=NULL)
+    head=head->next;
+}
+
+
+void del_at_last()
+{ if(head==NULL){return;}
+    node*a=head;
+    node*b=a->next;
+    if(a->next==NULL){head=NULL;return;}
+    while(b->next!=NULL)
+    {   a=a->next;
+        b=b->next;
+    }
+    a->next=NULL;
+}
+
+
+void print()
+{
+    node*t=head;
+    while(t!=NULL)
+    {
+        cout<<t->data<<"->";
+        t=t->next;
+    }
+    cout<<"NULL"<<endl;
+
+}
+int main()
+{
+    head=NULL;
+    int n;
+    cin>>n;
+    while(n--)
+    {
+       int s;cin>>s;
+       insert(s);
+    }
+    print();
+    del_at_beg();
+    print();
+    del_at_last();
+    print();
+}
+------------------------------------------------------
+#include<iostream>
+using namespace std;
+struct node
+{
+    int data;
+    node* next;
+}*head;
+int count=0;
+void insert(int v)
+{
+    node* d=new node();
+    d->data=v;
+    d->next=NULL;
+        if(head==NULL)
+        {
+            head=d;
+        }
+        else
+        {
+            node* t=head;
+            while(t->next!=NULL)
+            {
+                t=t->next;
+            }
+            t->next=d;
+
+        }
+        count++;
+
+}
+void del_at_beg()
+{  if(head!=NULL)
+   {
+
+    head=head->next;
+    count--;
+   }
+}
+
+
+void del_at_last()
+{
+    if(head==NULL){return;}
+    count--;
+    node*a=head;
+p-;    node*b=a->next;
+    if(a->next==NULL){head=NULL;return;}
+    while(b->next!=NULL)
+    {   a=a->next;
+        b=b->next;
+    }
+    a->next=NULL;
+
+}
+void del_at_any_point(int n)
+{ if(n<count){
+    if(n==0){del_at_beg();}
+    else if(n+1==count){del_at_last();}
+    else
+    {   node*t=head;
+    node*u=head->next;
+        n--;
+        while(n--)
+        {  u=u->next;
+            t=t->next;
+        }
+       t->next=u->next;
+count--;
+    }}
+}
+void del_acc_to_value(int n)
+ {
+     node*t=head;
+     if(head==NULL){return;}
+     //if(t->next=NULL){}
+     if(t->data==n){del_at_beg();}
+     node*u=head->next;
+     while(u!=NULL && u->data!=n)
+        {   u=u->next;
+            t=t->next;
+        }
+        if(u!=NULL)
+        {t->next=u->next;
+        count--;
+        }
+
+ }
+void print()
+{
+    node*t=head;
+    while(t!=NULL)
+    {
+        cout<<t->data<<"->";
+        t=t->next;
+    }
+    cout<<"NULL"<<count<<endl;
+
+}
+int main()
+{
+    head=NULL;
+    int n;
+    cin>>n;
+    while(n--)
+    {
+       int s;cin>>s;
+       insert(s);
+    }
+    print();
+    int y;
+    cin>>n;
+    while(n--){
+        cin>>y;
+        del_acc_to_value(y);
+        print();
+    }
+
+}
+----------------------------------------------------
+-------------------
+
+#include<iostream>
+using namespace std;
+struct node
+{
+    int data;
+    node* next;
+}*head;
+int count=0;
+void insert(int v)
+{
+    node* d=new node();
+    d->data=v;
+    d->next=NULL;
+        if(head==NULL)
+        {
+            head=d;
+        }
+        else
+        {
+            node* t=head;
+            while(t->next!=NULL)
+            {
+                t=t->next;
+            }
+            t->next=d;
+
+        }
+        count++;
+
+}
+void del_at_beg()
+{  if(head!=NULL)
+   {
+
+    head=head->next;
+    count--;
+   }
+}
+
+
+void del_at_last()
+{
+    if(head==NULL){return;}
+    count--;
+    node*a=head;
+    node*b=a->next;
+    if(a->next==NULL){head=NULL;return;}
+    while(b->next!=NULL)
+    {   a=a->next;
+        b=b->next;
+    }
+    a->next=NULL;
+
+}
+void del_at_any_point(int n)
+{ if(n<count){
+    if(n==0){del_at_beg();}
+    else if(n+1==count){del_at_last();}
+    else
+    {   node*t=head;
+    node*u=head->next;
+        n--;
+        while(n--)
+        {  u=u->next;
+            t=t->next;
+        }
+       t->next=u->next;
+count--;
+    }}
+}
+
+
+void sort()
+{
+  for(node*i=head;i->next!=NULL;i=i->next)
+  {
+      for(node*j=i->next;j!=NULL;j=j->next)
+      {
+          if(i->data>j->data)
+          {
+              int temp=i->data;
+              i->data=j->data;
+              j->data=temp;
+          }
+      }
+  }
+}
+void del_acc_to_value(int n)
+ {
+    node*a=head;
+    node*b=head->next;
+    if(head==NULL){return;}
+    if(a->data==n){del_at_beg();}
+    while(b!=NULL && b->data!=n)
+    {
+        a=a->next;
+        b=b->next;
+    }
+    if(b!=NULL)
+    {a->next=b->next;
+    count--;
+    }
+ }
+void print()
+{
+    node*t=head;
+    while(t!=NULL)
+    {
+        cout<<t->data<<"->";
+        t=t->next;
+    }
+    cout<<"NULL"<<count<<endl;
+
+}
+void printoe()
+{
+
+node*t=head;
+while(t!=NULL)
+{
+    if(t->data%2!=0)
+    {cout<<t->data<<"->";
+    }
+    t=t->next;
+}
+t=head;
+while(t!=NULL)
+{
+    if(t->data%2==0)
+    {
+        cout<<t->data<<"->";
+    }
+    t=t->next;
+}
+}
+int main()
+{
+    head=NULL;
+    int n;
+    cin>>n;
+    while(n--)
+    {
+       int s;cin>>s;
+       insert(s);
+    }
+    print();
+sort();
+print();
+printoe();
+
+}
+
+
+--------------------------------------------------------------------------

@@ -1,0 +1,74 @@
+#include <iostream>
+
+using namespace std;
+struct node
+{
+    int data;
+    node* next;
+}*head;
+
+void insert(int v)
+    {
+      node*d=new node;
+      d->data=v;
+      d->next=NULL;
+            if(head==NULL)
+            {
+                head=d;
+            }
+            else
+            {
+                node*t=head;
+                while(t->next!=NULL)
+                {
+                    t=t->next;
+                }
+                t->next=d;
+            }
+    }
+
+ void del()
+ {  if(head!=NULL)
+     head=head->next;
+
+ }
+void delast()
+{ if(head!=NULL)
+   {
+
+    node*t=head;
+    node*d=t->next;
+    if(d==NULL){head=NULL;return;}
+    while(d->next!=NULL)
+    {   t=d;
+        d=d->next;
+    }
+    t->next=NULL;
+   }
+}
+
+    void print()
+        {
+            node*t=head;
+            while(t!=NULL)
+            {
+                cout<<t->data<<"->";
+                t=t->next;
+            }
+            cout<<"NULL"<<endl;
+        }
+int main()
+    { head=NULL;
+int n;cin>>n;
+while(n--)
+   {
+       int c;cin>>c;
+       insert(c);
+
+   }
+    print();
+    del();
+    print();
+    delast();
+    print();
+    }

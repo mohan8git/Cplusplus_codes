@@ -1,0 +1,119 @@
+#include <iostream>
+using namespace std;
+struct node
+{
+    int data;
+    node* left;
+    node* right;
+}*root;
+
+
+node* insert(node* r,int v)
+{
+  if(r==NULL)
+  {
+    node* t=new node();
+    t->data=v;           //everytime new node will be created
+    t->right=t->left=NULL;
+    r=t;
+  }
+    else if(v > r->data)
+    {
+      r->right=insert(r->right,v);    //recursive call made again
+
+    }
+    else if(v < r->data){
+      r->left=insert(r->left,v);    //recursive call made again
+    }
+
+
+ return r;
+}
+node* FindMin(node* root)
+{
+    while(root->left!=NULL)
+    {
+        root=root->left;
+        return root;
+    }
+}
+
+
+node* Delete(node* root,int data)
+{
+    
+    if(root==NULL) return root;
+    else if(data<root->data)
+      {
+          root->left=Delete(root->left,data);
+      }
+    else if(data>root->data)
+      {
+          root->right=Delete(root->right,data);
+      }
+    else
+      {
+          if(root->left==NULL && root->right==NULL)
+          {
+              delete root;
+              root=NULL;
+              return root;
+          }
+          else if(root->left==NULL)
+          {
+              node* temp=root;
+              root=root->right;
+              delete temp;
+              return root;
+          }
+          else if(root->right==NULL)
+          {
+              node* temp=root;
+              root=root->left;
+              delete temp;
+              return root;
+          }
+          else
+          {
+              node* temp=FindMin(root->right);
+              root->data=temp->data;
+              root->right=Delete(root->right,temp->data);
+              return root;
+          }
+          
+      }
+}
+
+
+
+
+void preorder(node* r){
+ if(r!=NULL)
+ {
+
+     preorder(r->left);
+     preorder(r->right);
+      cout<<r->data<<" ";
+
+ }
+ 
+
+}
+
+int main(){
+
+   root=NULL;
+   root=insert(root,10);
+    root=insert(root,5);
+    root=insert(root,20);
+    root=insert(root,4);
+root=insert(root,6);
+root=insert(root,12);
+root=insert(root,25);
+preorder(root);
+Delete(root,25);
+preorder(root);
+return 0;
+}
+
+a
