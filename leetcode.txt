@@ -254,3 +254,74 @@ int maxProfit(vector<int>& prices) {
         
         return profit;
     }
+===============================================
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        unordered_set<int> uni_ele{nums1.begin(),nums1.end()};
+        
+        vector<int> res;
+        for(auto x: nums2)
+        {
+            auto it=uni_ele.find(x);
+            
+            if(it!=uni_ele.end())
+            {
+                res.emplace_back(x);
+                uni_ele.erase(it);
+            }
+        }
+        return res;
+    }
+};              intersection of 2 array
+=====================
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        sort(s.begin(),s.end());                            sorting string
+        sort(t.begin(),t.end());
+        if(s.compare(t)==0) return true;
+        else
+            return false;
+        
+    }
+};
+#soln 2
+bool isAnagram(std::string s, std::string t) 
+{
+    std::unordered_map<char, int> ma;
+    std::unordered_map<char, int> mb;
+    
+    for(const auto &el: s)
+    {
+        ma[el]++;
+    }
+    
+    for(const auto &el: t)
+    {
+        mb[el]++;
+    }
+    
+    return ma == mb; 
+}
+===============================================
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+       for(int i=digits.size()-1;i>=0;i--)
+       {
+           if(digits[i]==9)
+               digits[i]=0;
+           else{
+               digits[i]++;                          //adding 1 to an array
+               return digits;
+           }
+           
+       }
+        
+        digits.emplace(digits.begin(),1);
+        return digits;
+    }
+};
+==========================================
