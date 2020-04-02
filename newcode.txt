@@ -1,0 +1,62 @@
+   int addDigits(int num) {
+        
+   
+        if(num==0) return num;
+        else if(num%9)return num%9;
+        else return 9;
+    
+    }
+
+===========================
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+       int max = 0, i = 0;
+	while (i < nums.size())
+	{
+		while (i < nums.size() && nums[i] == 0)i++;
+		int subMax = 0;
+		while (i < nums.size() && nums[i] == 1)
+		{
+			subMax++;
+			i++;
+		}
+		if (subMax > max) max = subMax;
+	}
+	return max; 
+    }
+};
+
+==========================
+        map<int,int> mp;
+        for(int i=0;i<arr.size();i++)
+        {
+            mp[arr[i]]++;
+        }
+        int lucky=-1;
+        
+        for(auto i:mp)
+        {
+            if(i.first==i.second && i.first>lucky)
+                lucky=i.first;
+        }
+        
+        return lucky;
+
+===================================
+
+class Solution {
+public:
+    vector<int> createTargetArray(vector<int>& nums, vector<int>& index) {
+      vector<int> t;
+        for(int i=0;i<nums.size();i++)
+        {
+            int p=index[i];
+            int n=nums[i];
+            t.insert(t.begin()+p,n);
+        }
+        return t;
+    }
+};
+
+==========================================
