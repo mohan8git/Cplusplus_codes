@@ -60,3 +60,20 @@ public:
 };
 
 ==========================================
+int clockwise = 0;
+        int total = 0;
+        
+        if(start == destination)
+            return 0;
+        
+        if(start > destination)
+            swap(start, destination);
+        
+        for(int i : distance)
+            total += i;
+        
+        for(int i=start; i<destination; i++)
+            clockwise += distance[i];
+        
+        return min(clockwise, total - clockwise);
+=======================================
