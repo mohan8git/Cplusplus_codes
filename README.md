@@ -8,4 +8,5 @@ you can follow my code
 on leetcode
 leetcode.com/citycoder
 
+Best way to give a start to the coding thing is to go with the east question in the leetcode.
 
