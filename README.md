@@ -8,5 +8,6 @@ you can follow my code
 on leetcode
 leetcode.com/citycoder
 
-Best way to give a start to the coding thing is to go with the east question in the leetcode.
-
+Best way to give a start to the coding thing is to go with the easy question in the leetcode.
+--------------------------------------------------------------------------------------------------------------------
+It is always best to practise STL is C++.
