@@ -11,3 +11,4 @@ leetcode.com/citycoder
 Best way to give a start to the coding thing is to go with the easy question in the leetcode.
 --------------------------------------------------------------------------------------------------------------------
 It is always best to practise STL is C++.
+Please do participate in the weekly contest and biweekly contest to test yourself in coding.
