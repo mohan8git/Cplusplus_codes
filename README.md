@@ -15,7 +15,7 @@ Please do participate in the weekly contest and biweekly contest to test yoursel
 try to solve atleast one in the coding challenge.
 
 Keep the rating high.
-
+Collect the coins by joining the contest.
 ---------------------------------------------------------------------------------------------------------
 
 
